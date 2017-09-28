@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-#define N 1000
+#define N 10000
 
 void matrixMult (int* a, int* b, int* c, int width)
 {
@@ -40,4 +40,5 @@ int main() {
     }
 
 	matrixMult(a, b, c, N);
+	return 0;
 }

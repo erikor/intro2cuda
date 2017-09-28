@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <cuda.h>
 
-#define N 1000
+#define N 10000
 
 __global__ void matrixMult (int *a, int *b, int *c, int width) {
 	int k, sum = 0;
