@@ -38,3 +38,24 @@ Multithreaded (GPU) version of matrix multiply.
 
 This is an interesting example because every data element gets visited multiple times, which starts to make the data round trip 
 between host and device worth it.
+
+## getprops
+
+A utility program to display the capabilities and resources of your graphics card.  Sample output:
+
+```
+DEVICE SPECIFICATIONS:
+----------------------
+Device name: Quadro M1000M
+Total Global Memory: 4238147584
+Share mem per block: 49152
+Registers per block: 65536
+Warp size: 32
+Max threads per block: 1024
+Max thread dimensions (x, y, z): 1024, 1024, 64
+Max grid dimensions (x, y, z): 2147483647, 65535, 65535
+Compute capability: 5.0
+Multiprocessor count: 4
+Cores per multiprocessor (inferred): 128
+
+```
