@@ -18,8 +18,11 @@ __global__ void matrixShared (int *a, int *b, int width) {
 	int col = threadIdx.x + blockDim.x * blockIdx.y;
 	int row = threadIdx.y + blockDim.y * blockIdx.y;
     int i;
+
     s[tx + ty * blockDim.x] = a[col + row * width];	
+
     __syncthreads();
+    
     for(i=0; i<1000; i++) {
        value = s[tx + ty * blockDim.x] + i;
     }
@@ -30,7 +33,7 @@ int main() {
 	int i, j;
 	int* a;
 	int* b;
-	srand(time(NULL));   // should only be called once
+	srand(time(NULL)); 
 
 	CUdeviceptr ad, bd;
 	int size = N * N * sizeof(int);
@@ -44,7 +47,6 @@ int main() {
     for(i=0; i<N; i++) {
     	for(j=0; j<N; j++) {
     		a[i+j*N] = rand();
-    		//a[i+j*N] = 2;
     	}
     }
 
