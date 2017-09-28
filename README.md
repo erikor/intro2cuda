@@ -39,11 +39,39 @@ Multithreaded (GPU) version of matrix multiply.
 This is an interesting example because every data element gets visited multiple times, which starts to make the data round trip 
 between host and device worth it.
 
-## getprops
+## demo6
 
-A utility program to display the capabilities and resources of your graphics card.  Sample output:
+Singlethreaded matrix bashing.  Doing a trivial repetitive calculation at each element of matrix, single threaded.
+
+Timing:
 
 ```
+real	0m2.033s
+user	0m2.028s
+sys	    0m0.004s
+
+```
+
+## demo7
+
+GPU matrix bashing with shared memory.  Loads up a block's tile of data into shared memory and then performs the same trivial repetitive operation as demo 7 but multithreaded on the GPU.  Doing a trivial repetitive calculation at each element of matrix, single threaded.
+
+Timing:
+
+```
+real	0m0.133s
+user	0m0.016s
+sys	    0m0.112s 
+```
+
+## getprops
+
+Display the properties and capabilities of your GPU.  Also a good way to confirm that the cuda libraries are installed and that the compiler and linker can find the headers and libraries.
+
+Sample output:
+
+```
+
 DEVICE SPECIFICATIONS:
 ----------------------
 Device name: Quadro M1000M
