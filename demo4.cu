@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-#define N 800
+#define N 1000
 
 void matrixMult (int* a, int* b, int* c, int width)
 {
@@ -17,7 +17,7 @@ void matrixMult (int* a, int* b, int* c, int width)
 				sum += m * n;
 			}
 			c[i + width * j] = sum;
-		}
+		}	
 	}
 }
 
@@ -31,13 +31,13 @@ int main() {
     b = (int*)malloc(size);
     c = (int*)malloc(size);
 
-/*    for(i=0; i<N; i++) {
+    for(i=0; i<N; i++) {
     	for(j=0; j<N; j++) {
     		a[i+j*N] = 2;
     		b[i+j*N] = 2;
     		c[i+j*N] = 2;
     	}
     }
-*/
+
 	matrixMult(a, b, c, N);
 }

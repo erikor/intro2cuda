@@ -4,7 +4,7 @@
 // https://devtalk.nvidia.com/default/topic/1002219/does-nvcc-include-header-files-automatically-/
 
 // build:
-// nvcc demo1.cu -o demo1
+// nvcc demo1.cu -o bin/demo1
 
 #include <stdio.h>
  

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <cuda.h>
 
-#define N 800
+#define N 1000
 
 __global__ void matrixMult (int *a, int *b, int *c, int width) {
 	int k, sum = 0;
@@ -21,21 +21,21 @@ int main() {
 	int* c;
 	CUdeviceptr ad, bd, cd;
 	long size = N * N * sizeof(int);
-	dim3 dimGrid(8, 8);
+	dim3 dimGrid(100, 100);
 	dim3 dimBlock(100, 100);
 
     a = (int*)malloc(size);
     b = (int*)malloc(size);
     c = (int*)malloc(size);
 
-/*    for(i=0; i<N; i++) {
+    for(i=0; i<N; i++) {
     	for(j=0; j<N; j++) {
     		a[i+j*N] = 2;
     		b[i+j*N] = 2;
     		c[i+j*N] = 2;
     	}
     }
-*/
+
     cudaThreadSynchronize(); 
 
 	cuMemAlloc(&ad, size);
