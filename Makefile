@@ -1,4 +1,13 @@
-all: demo1 demo2 demo3 demo4 demo5
+MKDIR_P := mkdir -p
+OUT_DIR := bin
+
+all: directories demo1 demo2 demo3 demo4 demo5
+
+directories: $(OUT_DIR)
+
+$(OUT_DIR):
+	${MKDIR_P} $(OUT_DIR)
+
 
 demo1: demo1.cu
 	nvcc -o bin/demo1 demo1.cu -lcuda
